@@ -1,0 +1,11 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@layer components{
+  .header{
+    @apply sticky z-[100] h-14 inset-x-0 top-0 border-b w-full border-gray-200 bg-white/75 backdrop-blur-lg transition-all;
+  }
+  .header .nav-cont{
+    @apply flex h-14 items-center justify-between border-b border-zinc-200;
+  }
+}

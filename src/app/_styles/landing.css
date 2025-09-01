@@ -1,0 +1,49 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@layer base {
+  .main-heading {
+    @apply capitalize relative w-fit tracking-tight text-balance  mt-16 font-bold !leading-tight text-gray-900 text-5xl md:text-6xl lg:text-7xl;
+    span {
+      @apply bg-green-600 px-2 text-white rounded;
+    }
+  }
+  .sub-heading {
+    @apply mt-8 text-lg lg:pr-10 max-w-prose text-center lg:text-left text-balance md:text-wrap text-muted-foreground;
+    span{
+      @apply font-semibold;
+    }
+  }
+}
+@layer components {
+  .hero-container {
+    @apply pb-24 pt-10 lg:grid lg:grid-cols-3 sm:mb-32 lg:gap-x-0 xl:gap-x-8 lg:pt-22  lg:pb-48;
+  }
+  .hero-container .cta-cont {
+    @apply relative mx-auto text-center lg:text-left flex flex-col items-center lg:items-start;
+  }
+  .hero-container .img-cont {
+    @apply absolute left-0 -top-14 w-28 hidden lg:block;
+  }
+  .hero-container .features {
+    @apply mt-8 space-y-8 font-medium flex flex-col items-center sm:items-start;
+    li {
+      @apply flex gap-1.5 items-center text-left w-fit;
+    }
+  }
+  .hero-container .users-img-cont {
+    @apply mt-12 flex flex-col sm:flex-col items-center sm:items-start;
+    img {
+      @apply inline-block h-10 w-10 rounded-full right-2 ring-slate-100 object-cover object-center;
+    }
+  }
+  .hero-container .phone-wrapper {
+    @apply col-span-full lg:col-span-1 w-full flex justify-center px-8 sm:px-16 md:px-0 mt-32 lg:mx-0 lg:mt-20 h-fit;
+  }
+  .phone-wrapper .your-image {
+    @apply absolute w-40 lg:w-52 left-56 select-none -top-20 hidden sm:block lg:hidden xl:block;
+  }
+  .phone-wrapper .line-image {
+    @apply absolute w-20 -left-6 -bottom-6 select-none;
+  }
+}
