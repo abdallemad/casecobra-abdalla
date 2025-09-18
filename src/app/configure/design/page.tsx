@@ -1,6 +1,6 @@
-import { redirect } from "next/navigation";
-import { Metadata } from "next";
 import db from "@/lib/prisma";
+import { Metadata } from "next";
+import { notFound } from "next/navigation";
 import DesignConfigurator from "./design-configurator";
 
 export const metadata: Metadata = {
@@ -14,11 +14,11 @@ async function page({
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }) {
   const id = (await searchParams)?.id as string;
-  if (!id) return redirect("/upload");
+  if (!id) return notFound();
   const configuration = await db.configuration.findUnique({
     where: { id },
   });
-  if (!configuration) return redirect("/upload");
+  if (!configuration) return notFound();
   return (
     <DesignConfigurator
       configId={configuration.id}

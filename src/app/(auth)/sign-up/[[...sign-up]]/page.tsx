@@ -1,6 +1,4 @@
 'use client'
-import * as Clerk from '@clerk/elements/common'
-import * as SignUp from '@clerk/elements/sign-up'
 import { Button } from '@/components/ui/button'
 import {
   Card,
@@ -12,9 +10,11 @@ import {
 } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import { FaGoogle } from 'react-icons/fa'
 import { cn } from '@/lib/utils'
-import { Loader, Loader2 } from 'lucide-react'
+import * as Clerk from '@clerk/elements/common'
+import * as SignUp from '@clerk/elements/sign-up'
+import { Loader2 } from 'lucide-react'
+import { FaGoogle } from 'react-icons/fa'
 
 export default function SignUpPage() {
   return (
