@@ -1,8 +1,6 @@
-import OrderResiveEmail from "@/components/order-review-email";
 import { sendOrderEmail } from "@/lib/nodemailer";
 import db from "@/lib/prisma";
 import { stripe } from "@/lib/stripe";
-import { render } from "@react-email/components";
 import { headers } from "next/headers";
 import { NextResponse } from "next/server";
 

@@ -1,10 +1,10 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import { COLORS } from "@/config";
+import { cn } from "@/lib/utils";
 import { Color } from "@prisma/client";
 import { AspectRatio } from "@radix-ui/react-aspect-ratio";
 import Image from "next/image";
-import { cn } from "@/lib/utils";
-import { COLORS } from "@/config";
+import { useEffect, useRef, useState } from "react";
 
 export default function PhonePreview({
   croppedImageUrl,

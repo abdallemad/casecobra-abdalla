@@ -11,7 +11,7 @@ function ThankYou({ orderId }: { orderId: string }) {
   if (isLoading) return <LoadingState />;
   if (data === false || data === true || !data) return <NotPaidYet />;
   const { BillingAddress, shippingAddress, amount, configuration } = data;
-  const { color, croppedImageUrl, finish, model, material } = configuration;
+  const { color, croppedImageUrl, } = configuration;
   return (
     <div className="bg-white">
       <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
