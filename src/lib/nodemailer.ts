@@ -7,8 +7,8 @@ import nodemailer from "nodemailer";
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: "abdallaemad1.3.2.0.0.5@gmail.com", // استبدل ببريدك الإلكتروني
-    pass: process.env.GOOGLE_GMAIL_PASS, // استخدم كلمة مرور التطبيق (App Password)
+    user: "abdallaemad1.3.2.0.0.5@gmail.com",
+    pass: process.env.G_SECRET,
   },
 });
 

@@ -23,10 +23,6 @@ function OrderResiveEmail({
   orderId: string;
   orderDate: string;
 }) {
-  const baseUrl =
-    process.env.NODE_ENV === "development"
-      ? "http://localhost:3000"
-      : "https://casecobra-abdalla.vercel.app";
   return (
     <Html>
       <Head></Head>
@@ -35,7 +31,7 @@ function OrderResiveEmail({
         <Container style={container}>
           <Section style={message}>
             <Img
-              src={`${baseUrl}/assets/snake-3.png`}
+              src={`https://casecobra-abdalla.vercel.app/assets/snake-3.png`}
               width={"56"}
               height={"73"}
               alt="delevery snake"
