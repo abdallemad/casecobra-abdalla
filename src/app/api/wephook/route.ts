@@ -31,7 +31,7 @@ export async function POST(request: Request) {
           throw new Error("No orderId or userId provided");
 
         const shippingAddress = session.customer_details?.address;
-        const newOrder = await db.order.update({
+        await db.order.update({
           where: { id: orderId },
           data: {
             isPaid: true,
@@ -60,10 +60,19 @@ export async function POST(request: Request) {
         });
 
         await sendOrderEmail({
-          orderId: newOrder.id,
-          orderDate: newOrder.createdAt.toDateString(),
+          orderId,
+          orderDate: new Date().toDateString(),
           mailTo: session.customer_details?.email,
-          shippingAddress: newOrder.shippingAddress!,
+          shippingAddress: {
+            name: session.customer_details?.name || "",
+            country: shippingAddress?.country || "",
+            city: shippingAddress?.city || "",
+            postalCode: shippingAddress?.postal_code || "",
+            street: shippingAddress?.line1 || "",
+            state: shippingAddress?.state || "",
+            phoneNumber: session.customer_details?.phone || "",
+            id:""
+          },
         });
         return NextResponse.json({ result: event, ok: true });
       default:
