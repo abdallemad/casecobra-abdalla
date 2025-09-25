@@ -1,5 +1,8 @@
+import OrderResiveEmail from "@/components/order-review-email";
+import { sendOrderEmail } from "@/lib/nodemailer";
 import db from "@/lib/prisma";
 import { stripe } from "@/lib/stripe";
+import { render } from "@react-email/components";
 import { headers } from "next/headers";
 import { NextResponse } from "next/server";
 
@@ -25,11 +28,12 @@ export async function POST(request: Request) {
           orderId: null,
           userId: null,
         };
+
         if (!orderId || !userId)
           throw new Error("No orderId or userId provided");
 
         const shippingAddress = session.customer_details?.address;
-        await db.order.update({
+        const newOrder = await db.order.update({
           where: { id: orderId },
           data: {
             isPaid: true,
@@ -54,8 +58,15 @@ export async function POST(request: Request) {
               },
             },
           },
+          include: { shippingAddress: true },
         });
 
+        await sendOrderEmail({
+          orderId: newOrder.id,
+          orderDate: newOrder.createdAt.toDateString(),
+          mailTo: session.customer_details?.email,
+          shippingAddress: newOrder.shippingAddress!,
+        });
         return NextResponse.json({ result: event, ok: true });
       default:
         throw new Error("Unhandled event type");

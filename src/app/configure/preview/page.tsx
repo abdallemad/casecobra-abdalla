@@ -2,6 +2,12 @@ import { notFound } from "next/navigation";
 import React from "react";
 import db from "@/lib/prisma";
 import DesignPreview from "./design-preview";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Design Preview - Case Cobra",
+  description: "Preview your design here",
+};
 
 async function PreviewPage({
   searchParams,

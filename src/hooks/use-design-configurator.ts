@@ -1,3 +1,5 @@
+'use client';
+
 import {
   ConfigureSaved,
   saveConfigAction,
@@ -48,10 +50,10 @@ function useDesignConfigurator({
     mutationFn: async (data: ConfigureSaved) => {
       return await Promise.all([saveConfiguration(), saveConfigAction(data)]);
     },
-    onError: () => {
+    onError: (err) => {
       toast("Upload Failed!", {
         description:
-          "some thing went wrong when saving your config try again later.",
+          err.message,
       });
     },
     onSuccess: () => {
