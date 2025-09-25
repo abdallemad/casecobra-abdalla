@@ -1,3 +1,5 @@
+'use server';
+
 import OrderResiveEmail from "@/components/order-review-email";
 import { ShippingAddress } from "@prisma/client";
 import { render } from "@react-email/components";
