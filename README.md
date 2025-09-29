@@ -1,159 +1,197 @@
 # CaseCobra 📱🛒
+![hero](./public/website-screen-shoots/hero.png)
+![design](./public//website-screen-shoots/design-case.png)
+**CaseCobra** is a full-stack e-commerce web app for selling customizable mobile cases.  
+Users can upload images, adjust their design on a phone mockup, and complete orders via Stripe.
 
-CaseCobra is a full-stack e-commerce web application for selling custom mobile cases.  
-Users can upload their own images, customize the design, and order their personalized phone case.
+---
 
-## 🚀Overview
+## ✅ Live & Repo
 
-### The Process
+- **Live demo:** https://casecobra-abdalla.vercel.app  
+- **Repository:** https://github.com/abdallemad/casecobra-abdalla
 
-[x] Set up the DEV environment
-[x] Make a beautiful Landing page with animations
-[x] Add authentication system with Clerk
-[x] Create a login and sign up pages with Clerk elements with shadCN
-[x] Configure upload page and upload functionality with uploadthing
-[x] Configure design page with React Rnd to customize the image on the phone
-[x] Create our summary page with create checkout session logic
-[x] Integrate payment with stripe
-[x] Create Auth call back page for saving progress
-[x] Create our stripe web hook
-[x] Write thankyou email with react components and send it with nodemailer
-[x] Admin dashboard
+---
 
-### Screen Shoots
+## 💡 Key Features
 
-[landing](./public/website-screen-shoots/hero.png)
-[sign-in](./public//website-screen-shoots//sign-in.png)
-[upload](./public//website-screen-shoots/upload-functionality.png)
-[design](./public//website-screen-shoots//design-case.png)
-[preview](./public/website-screen-shoots/phone-preview.png)
-[checkout](./public//website-screen-shoots//checkout-session.png)
-[thankyou](./public/website-screen-shoots/thank-you.png)
-[dashboard](./public/website-screen-shoots/dashboard.png)
+- Upload custom images for phone cases (UploadThing)
+- Visual design/configurator (drag, scale, rotate using React Rnd)
+- Phone preview and checkout flow (Stripe)
+- Authentication and user management with Clerk
+- Admin dashboard for order management
+- Email notifications (Nodemailer)
+- Webhook to handle Stripe events
+- Clean UI with TailwindCSS + ShadCN components
 
-### Links
+---
 
-- Solution URL: [here](https://casecobra-abdalla.vercel.app)
-- GitHub Repo: [here](https://github.com/abdallemad/casecobra-abdalla)
-
-## My Process
-
-### Build with
+## 🛠 Tech Stack
 
 **Frontend**
-
-- Next.js 15 (App Router)
-- React
+- Next.js (App Router)
+- React + TypeScript
 - TailwindCSS
-- ShadCN/UI
-- Magic UI
+- shadcn/ui, Magic UI
 
-**Backend**
+**Backend / Services**
+- Next.js API routes / Server Actions (RPC-style)
+- MongoDB (via Prisma)
+- UploadThing (file uploads)
+- Stripe (payments & webhooks)
+- Clerk (authentication)
+- Nodemailer (emails)
 
-- Next.js API Routes (or separate Node/Express server)
-- Mongodb (via Prisma ORM)
-- Upload thing (for image upload)
-- Stripe (for payments)
-- Clerk (for user authentication)
-- Server Actions (RPC)
+**Other**
+- React Query (data fetching & cache)
+- Vercel (deployment)
 
-**Others**
+---
 
-- TypeScript
-- React Query (state management & API call)
-- Deployment: Vercel (frontend)
+## 📁 Project Structure (summary)
 
-### 📂 Project Structure
-
-```md
+```
 src/
 ├── app/
-│ ├── (auth)/ # Login / Register
-│ ├── dashboard/ # admin dashboard
-│ ├── configure
-| | ├── upload/ # upload user case image
-| | ├── design/ # Customize the image and case options
-| | └── preview/ # Preview the design and create a payment session
-│ ├── thank-you/
-│ ├── auth-callback/
-│ ├── api/
-| | ├── uploadthing/ # upload backend functionality
-| | └── wephook/ # stripe webhoook
-│ └── layout.tsx # Root layout
+│   ├── (auth)/                # Login / Register (Clerk)
+│   ├── dashboard/             # Admin dashboard
+│   ├── configure/
+│   │   ├── upload/            # Upload user images
+│   │   ├── design/            # Customize image & options
+│   │   └── preview/           # Preview and create checkout session
+│   ├── thank-you/
+│   ├── auth-callback/
+│   ├── api/
+│   │   ├── uploadthing/       # upload backend endpoints
+│   │   └── webhook/           # stripe webhook
+│   └── layout.tsx
 │
-├── components/ # Reusable UI components
-│ ├── ui/ # Shadcn components
-│ ├── globals/
-│ ├── landing/
-│ ├── magicui/
-│ ├── login-dialog.tsx
-│ ├── order-review-email.tsx
-│ └── phone-preview.tsx
+├── components/
+│   ├── ui/                    # shared shadcn components
+│   ├── landing/
+│   ├── globals/
+│   ├── magicui/
+│   ├── login-dialog.tsx
+│   ├── order-review-email.tsx
+│   └── phone-preview.tsx
 │
-├── hooks/ # Frontend logic
-│ ├── use-auth-callback.ts # create or check for the user in our db
-│ ├── use-design-configurator.ts # customize image and case options logic
-│ ├── use-get-order-status.ts # get order status for check for if its paid or not
-│ ├── use-preview-case.ts # create the checkout session
-│ └── use-upload-configure.ts # upload image logic
-|
-└── actions/ # backend (RPCs)
-├── change-order-status-action.ts # for admin dashboard change the order status
-├── create-checkout-session-action.ts # for create a checkout session
-├── design-config-action.ts # update the configure record with new data
-├── get-auth-status-action.ts # Create or find the user
-└── get-payment-status-action # check for paid status in db
+├── hooks/
+│   ├── use-auth-callback.ts
+│   ├── use-design-configurator.ts
+│   ├── use-get-order-status.ts
+│   ├── use-preview-case.ts
+│   └── use-upload-configure.ts
+│
+└── actions/                    # server actions / RPCs
+    ├── change-order-status-action.ts
+    ├── create-checkout-session-action.ts
+    ├── design-config-action.ts
+    ├── get-auth-status-action.ts
+    └── get-payment-status-action.ts
 ```
 
 ---
 
-## ⚡ Getting Started
+## 🚀 Quick Start (local)
 
-1. Clone the repository
+1. **Clone**
 
 ```bash
 git clone https://github.com/abdallemad/casecobra-abdalla.git
-cd casecobra
+cd casecobra-abdalla
 ```
 
-2. Install dependencies
+2. **Install (recommended: pnpm)**
 
 ```bash
 npm i -g pnpm
 pnpm install
 ```
 
-3. Setup Environment variables in /.env
+3. **Environment**
+
+Create a `.env` file in project root (or copy `.env.example`) and set these variables:
 
 ```ini
-A_EMAIL="Your admin Email"
-NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY="clerk public key"
-CLERK_SECRET_KEY="Clerk secret"
-NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=/auth-callback
-NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=/auth-callback
-UPLOADTHING_TOKEN="your upload thing token"
-DATABASE_URL="data base url"
-STRIPE_SECRET="Strip secret"
-STRIPE_KEY="stripe public key"
-NEXT_PUBLIC_SERVER_URL="localhost:3000 for dev and remote domain for deployment"
-STRIPE_WEBHOOK_SECRET="you stripe webhook secret"
-G_SECRET="your gmail secret for sending emails"
+A_EMAIL="your-admin-email@example.com"
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY="pk_..."
+CLERK_SECRET_KEY="sk_..."
+NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL="/auth-callback"
+NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL="/auth-callback"
+UPLOADTHING_TOKEN="uploadthing_token"
+DATABASE_URL="mongodb+srv://user:pass@cluster.mongodb.net/dbname"
+STRIPE_SECRET="sk_live_..."
+NEXT_PUBLIC_STRIPE_KEY="pk_live_..."
+NEXT_PUBLIC_SERVER_URL="http://localhost:3000" # or deployed domain
+STRIPE_WEBHOOK_SECRET="whsec_..."
+G_SECRET="your_gmail_app_password_or_secret_for_nodemailer"
 ```
 
-4. Run the development server
+> ⚠️ **Note:** keep secrets out of source control. Use environment variables in your deployment provider (Vercel, etc).
+
+4. **Run locally**
 
 ```bash
-yarn dev
+pnpm dev
+# or
+npm run dev
 ```
 
-## 📖 Learning Goals
+5. **Migrations / Prisma**
 
-- How to create features with my self like login and register
-- How to handle payment and webhooks
-- Learning about RPC protocol and how it works
-- Clean folder structure and best practice
-## Author
+If you use Prisma, run:
 
-- Website - [abdalla-emad](https://abdallahemad.vercel.app)
-- Linked in - [@abdallaemda](https://www.linkedin.com/in/abdalla-emad-618b8b317/)
-- Facebook - [@yourusername](https://www.facebook.com/profile.php?id=61572241092337)
+```bash
+pnpm prisma migrate dev --name init
+pnpm prisma generate
+```
+
+---
+
+## 📸 Screenshots
+
+- [hero](./public/website-screen-shoots/hero.png)  
+- [Sign in](./public/website-screen-shoots/sign-in.png)  
+- [upload](./public/website-screen-shoots/upload-functionality.png)
+- [Design](./public/website-screen-shoots/design-case.png)  
+- [Preview](./public/website-screen-shoots/phone-preview.png)  
+- [Checkout](./public/website-screen-shoots/checkout-session.png)  
+- [Thankyou](./public/website-screen-shoots/thank-you.png)
+- [Dashboard](./public/website-screen-shoots/dashboard.png)
+
+---
+
+## ✅ What I learned / Goals
+
+- Building auth flows with Clerk
+- Handling file uploads and client-side editing (UploadThing + React Rnd)
+- Implementing Stripe checkout and webhook handling
+- Organizing a full-stack app with Next.js (App Router) and server actions
+- Writing transactional emails with React components + Nodemailer
+
+---
+
+## 🤝 Contributing
+
+If you want to contribute, open an issue or submit a PR. Please describe the change and add screenshots for UI updates.
+
+---
+
+## 📜 License
+
+This project is released under the MIT License. See `LICENSE` for details.
+
+---
+
+## 🧑‍💻 Author
+
+Abdalla Emad — https://abdallahemad.vercel.app  
+GitHub: https://github.com/abdallemad
+
+LinkedIn: https://www.linkedin.com/in/abdalla-emad-618b8b317/
+
+---
+
+## Contact / Support
+
+If you find a bug or want a feature, please open an issue in the repo or contact me via LinkedIn.
