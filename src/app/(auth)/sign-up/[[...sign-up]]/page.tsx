@@ -26,7 +26,7 @@ export default function SignUpPage() {
               <SignUp.Step name="start">
                 <Card className="w-full sm:w-96">
                   <CardHeader>
-                    <CardTitle>عماد محمد علي</CardTitle>
+                    <CardTitle>Sign up in Case cobra</CardTitle>
                     <CardDescription>
                       Welcome! Please fill in the details to get started.
                     </CardDescription>
