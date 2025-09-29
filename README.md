@@ -22,7 +22,7 @@ Users can upload their own images, customize the design, and order their persona
 
 ### Screen Shoots
 
-[landing](./public/website-screen-shoots/hero.png)
+![landing](./public/website-screen-shoots/hero.png)
 [sign-in](./public//website-screen-shoots//sign-in.png)
 [upload](./public//website-screen-shoots/upload-functionality.png)
 [design](./public//website-screen-shoots//design-case.png)
