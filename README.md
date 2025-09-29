@@ -156,4 +156,4 @@ yarn dev
 
 - Website - [abdalla-emad](https://abdallahemad.vercel.app)
 - Linked in - [@abdallaemda](https://www.linkedin.com/in/abdalla-emad-618b8b317/)
-- Facebook - [@yourusername](https://www.facebook.com/profile.php?id=61572241092337)
+- Facebook - [@abdallaemad](https://www.facebook.com/profile.php?id=61572241092337)
